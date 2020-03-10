@@ -65,10 +65,6 @@ public class TrelloClient {
                 .queryParam("lists", "all").build().encode().toUri();
     }
 
- /*   public List<TrelloBoardDto> getTrelloBoards() {
-        TrelloBoardDto[] boardsResponse = restTemplate.getForObject(getTrelloBoardsURL(), TrelloBoardDto[].class);
-        return Optional.ofNullable(Arrays.asList(boardsResponse)).orElse(new ArrayList<>());
-    }*/
 
     public CreatedTrelloCard createNewCard(TrelloCardDto trelloCardDto) {
 
@@ -83,4 +79,6 @@ public class TrelloClient {
         return restTemplate.postForObject(url, null, CreatedTrelloCard.class);
 
     }
+
+
 }
