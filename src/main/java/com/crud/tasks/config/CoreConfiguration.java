@@ -15,15 +15,18 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 public class CoreConfiguration implements WebMvcConfigurer {
     @Bean
-    public RestTemplate restTemplate(){
+    public RestTemplate restTemplate() {
         return new RestTemplate();
     }
 
-    @Bean public Docket api() { return new Docket(DocumentationType.SWAGGER_2)
-            .select()
-            .apis(RequestHandlerSelectors.basePackage("com.crud.tasks.controller"))
-            .paths(PathSelectors.any())
-            .build(); }
+    @Bean
+    public Docket api() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.crud.tasks.controller"))
+                .paths(PathSelectors.any())
+                .build();
+    }
 
     @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
