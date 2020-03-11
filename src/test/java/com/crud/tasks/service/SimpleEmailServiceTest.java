@@ -22,13 +22,15 @@ public class SimpleEmailServiceTest {
     @Test
     public void shouldSendEmailWithCc() throws Exception {
         //given
-        Mail mail = new Mail("test@test.com", "Test", "Test message", "test1@test1.com");
+        Mail mail = new Mail("test@test.com", "Test", "Test message"/*, "test1@test1.com"*/);
 
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(mail.getMailTo());
         mailMessage.setSubject(mail.getSubject());
         mailMessage.setText(mail.getMessage());
+/*
         mailMessage.setCc(mail.getToCc());
+*/
 
 
         //when
