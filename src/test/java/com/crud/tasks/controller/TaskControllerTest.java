@@ -63,13 +63,10 @@ public class TaskControllerTest {
         //Given
         Task task = new Task(100L, "title", "content");
         TaskDto taskDto = new TaskDto(100L, "Task Dto title", "Task Dto content");
-
         when(dbService.getTask(task.getId())).thenReturn(Optional.ofNullable(task));
         when(taskMapper.mapToTaskDto(any(Task.class))).thenReturn(taskDto);
-
         Gson gson = new Gson();
         String jsonContent = gson.toJson(taskDto);
-
         //When & Then
         mockMvc.perform(get("/v1/task/getTask?id=100")
                 .contentType(MediaType.APPLICATION_JSON)
